@@ -1,0 +1,64 @@
+.landing-page {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+  }
+  
+  .landing-page h1 {
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .landing-page .lead {
+    font-size: 1.5rem;
+  }
+  
+  .landing-page .btn {
+    transition: all 0.3s ease;
+  }
+  
+  .landing-page .btn:hover {
+    transform: translateY(-3px);
+  }
+  
+  .landing-page .card {
+    transition: all 0.3s ease;
+  }
+  
+  .landing-page .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .feature-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 1rem;
+  font-size: 1.1rem;
+  }
+  
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+  .app-description {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+  .app-description:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }.app-showcase img {
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .app-showcase img:hover {
+    transform: scale(1.05);
+  }
