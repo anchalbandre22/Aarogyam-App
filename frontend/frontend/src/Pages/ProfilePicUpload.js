@@ -26,7 +26,7 @@ const ProfilePicUpload = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8080/users/${userId}/image_upload`,
+        `http://localhost:8080/users/user/${userId}/image_upload`,
         formData,
         {
           headers: {

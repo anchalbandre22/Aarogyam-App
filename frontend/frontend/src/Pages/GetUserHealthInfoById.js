@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Form, Button, Card, Alert } from 'react-bootstrap';
-
 const GetUserHealthInfoById = () => {
     const [id, setId] = useState('');
     const [userHealthInfo, setUserHealthInfo] = useState(null);
@@ -49,18 +48,7 @@ const GetUserHealthInfoById = () => {
                         <Card.Text><strong>Height:</strong> {userHealthInfo.height} m</Card.Text>
                         <Card.Text><strong>Weight:</strong> {userHealthInfo.weight} kg</Card.Text>
                         <Card.Text><strong>Age:</strong> {userHealthInfo.age} years</Card.Text>
-                        <Card.Text><strong>Created At:</strong> {new Date(userHealthInfo.createdAt).toLocaleString()}</Card.Text>
-                        <Card.Text><strong>Updated At:</strong> {new Date(userHealthInfo.updatedAt).toLocaleString()}</Card.Text>
-
-                        <Card.Header as="h6" className="mt-4">User Details</Card.Header>
-                        <Card.Text><strong>Email:</strong> {userHealthInfo.user.email}</Card.Text>
-                        <Card.Text><strong>First Name:</strong> {userHealthInfo.user.firstName}</Card.Text>
-                        <Card.Text><strong>Last Name:</strong> {userHealthInfo.user.lastName}</Card.Text>
-                        <Card.Text><strong>Phone No:</strong> {userHealthInfo.user.phoneNo}</Card.Text>
-                        <Card.Text><strong>Status:</strong> {userHealthInfo.user.status}</Card.Text>
-                        <Card.Text><strong>Address:</strong> {userHealthInfo.user.address}</Card.Text>
-                        <Card.Text><strong>Gender:</strong> {userHealthInfo.user.gender}</Card.Text>
-                    </Card.Body>
+                     </Card.Body>
                 </Card>
             )}
         </Container>

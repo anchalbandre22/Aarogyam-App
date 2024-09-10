@@ -28,7 +28,7 @@ public class UserHealthInfo extends BaseEntity {
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId", referencedColumnName = "ID", nullable = true)
     private Login user;
 

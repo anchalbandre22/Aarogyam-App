@@ -31,7 +31,7 @@ const UserListPage = () => {
                         <th>Status</th>
                         <th>Address</th>
                         <th>Gender</th>
-                        <th>Roles</th> {/* Added Roles column */}
+                        <th>Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@ const UserListPage = () => {
                             <td>{user.address}</td>
                             <td>{user.gender}</td>
                             <td>
-                                {user.roles ? user.roles.map(role => role.roleName).join(', ') : 'N/A'} {/* Display roles */}
+                                {user.roles ? user.roles.map(role => role.roleName).join(', ') : 'N/A'}
                             </td>
                         </tr>
                     ))}

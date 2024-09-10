@@ -25,11 +25,12 @@ const UpdateHealthInfo = ({ userId }) => {
   useEffect(() => {
     fetchHealthInfo();
   }, [fetchHealthInfo]);
-  
-  
+
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -49,6 +50,7 @@ const UpdateHealthInfo = ({ userId }) => {
       setTimeout(() => setUpdateMessage(''), 3000);
     }
   };
+
   return (
     <div className="update-health-info-container">
       <div className="update-health-info">
@@ -91,13 +93,15 @@ const UpdateHealthInfo = ({ userId }) => {
           <div>
             <label htmlFor="userHealthInformation">Health Condition:</label>
             <select
-              id="userHealthInformation"
-              name="userHealthInformation"
-              value={formData.userHealthInformation}
-              onChange={handleInputChange}
-              required
+              id="userHealthInformationDropdown"
+              onChange={(e) => {
+                if (e.target.value !== "") {
+                  setFormData({ ...formData, userHealthInformation: e.target.value });
+                }
+              }}
+              value={predefinedDiseases.includes(formData.userHealthInformation) ? formData.userHealthInformation : ""}
             >
-              <option value="">Select a health condition</option>
+              <option value="">Select or type below</option>
               {predefinedDiseases.map((disease) => (
                 <option key={disease} value={disease}>
                   {disease}
@@ -105,10 +109,23 @@ const UpdateHealthInfo = ({ userId }) => {
               ))}
             </select>
           </div>
+          <div>
+            <label htmlFor="userHealthInformation">Or specify health condition:</label>
+            <input
+              type="text"
+              id="userHealthInformation"
+              name="userHealthInformation"
+              value={formData.userHealthInformation}
+              onChange={handleInputChange}
+              placeholder="Enter health condition"
+              required
+            />
+          </div>
           <button type="submit">Update Health Information</button>
         </form>
       </div>
     </div>
   );
 };
+
 export default UpdateHealthInfo;

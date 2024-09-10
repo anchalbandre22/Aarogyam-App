@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ExerciseYogaPage.css';
 
-const ExerciseYogaPage = () => {
+const RegularExerciseYogaPage = () => {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const ExerciseYogaPage = () => {
   );
 };
 
-export default ExerciseYogaPage;
+export default RegularExerciseYogaPage;

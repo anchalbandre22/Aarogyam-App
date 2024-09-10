@@ -8,12 +8,19 @@ const AdminNavbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    axios.post('/api/logout')
+    axios.post('http://localhost:8080/users/user/logout')
       .then(response => {
+        // Clear any stored user data (e.g., tokens, user info)
+        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userRole');
+        
+        console.log(response.data); // Log the response message
         navigate('/');
       })
       .catch(error => {
         console.error("There was an error logging out!", error);
+        // You might want to show an error message to the user here
       });
   };
 
@@ -64,13 +71,19 @@ const AdminNavbar = () => {
                 <NavDropdown.Item href="/admin/updatearticle">Update Article</NavDropdown.Item>
                 <NavDropdown.Item href="/admin/deletearticle">Delete Article</NavDropdown.Item>
               </NavDropdown>
+              <NavDropdown title="Progress" id="progress-dropdown">
+                <NavDropdown.Item href="/allprogress">View All User Progress</NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="UserPayment" id="payment-dropdown">
+                <NavDropdown.Item href="/adminpayment">View All User Payment Status</NavDropdown.Item>
+              </NavDropdown>
               <NavDropdown title="Profile" id="user-dropdown">
                 <NavDropdown.Item href="/{Id}/image_upload">Edit Profile Picture</NavDropdown.Item>
                 <NavDropdown.Item href="/{userId}/image">View Profile Picture</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <NavDropdown title="Admin" id="basic-nav-dropdown" align="end">
+              <NavDropdown title="Logout" id="basic-nav-dropdown" align="end">
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               </NavDropdown>
             </Nav>

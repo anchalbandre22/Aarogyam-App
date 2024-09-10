@@ -126,7 +126,7 @@ const SignInPage = () => {
               Not registered yet? <a href="/register">Click here to register</a>.
             </p>
             <p className="signin-message">
-              Already registered? You can sign in using the form above.
+              <a href="/forgotpassword">Forgot your password?</a>
             </p>
           </div>
         </Form>

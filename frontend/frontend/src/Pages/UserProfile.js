@@ -61,7 +61,7 @@ const UserProfile = ({ userId }) => {
         <form onSubmit={handleSubmit}>
           <div>
             <label>User ID: </label>
-            <input name="id" value={user.id} readOnly />
+            <input name="id" value={user.userId} readOnly />
           </div>
           <div>
             <label>Email: </label>
@@ -102,7 +102,7 @@ const UserProfile = ({ userId }) => {
         </form>
       ) : (
         <div className="user-info">
-          {renderField("ID", user.id)}
+          {renderField("ID", user.userId)}
           {renderField("Email", user.email)}
           {renderField("Name", `${user.firstName} ${user.lastName}`)}
           {renderField("Phone", user.phoneNo)}

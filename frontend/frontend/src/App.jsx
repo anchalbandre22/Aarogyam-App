@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthPage from './Pages/AuthPage';
 import SignInPage from './Pages/SignInPage';
 import Admin from './Pages/Admin';
-import ExerciseYogaPage from './Pages/ExerciseYogaPage';
+
 import WaterIntakePage from './Pages/WaterIntakePage';
 import ArticlePage from './Pages/ArticlePage';
 import RegularUserNavbar from './NavBar/RegularUserNavBar';
@@ -47,7 +47,17 @@ import InsertArticle from './Pages/InsertArticle';
 import UpdateArticle from './Pages/UpdateArticle';
 import ViewAllArticles from './Pages/ViewAllArticles';
 import DeleteArticle from './Pages/DeleteArticle';
-
+import WeightGainUserNavbar from './NavBar/WeightGainUserNavBar';
+import RegularExerciseYogaPage from './Pages/RegularExerciseYogaPage';
+import WeightLossExerciseYogaPage from './Pages/WeightLossUserExercise';
+import WeightGainExerciseYogaPage from './Pages/WeightGainUserExercise';
+import UserProgressPage from './Pages/UserProgressPage';
+import AdminAllUserProgressPage from './Pages/AdminAllUserProgressPage';
+import ForgotPasswordPage from './Pages/ForgetPasswordPage';
+import PaymentPage from './Pages/PaymentPage';
+import AdminPaymentsPage from './Pages/AdminPaymentsPage';
+import ProfileImage from './Pages/ProfileImage';
+import LandingPage from './Pages/LandingPage';
 
 function App() {
   const userId = localStorage.getItem('userId');
@@ -55,17 +65,21 @@ function App() {
     
     <Router>
       <Routes>
-    
-        <Route path="/" element={<SignInPage />} />
+      <Route path="/" element={<LandingPage/>} />
+        <Route path="/signin" element={<SignInPage />} />
         <Route path="/register" element={<AuthPage />} />
+        <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
         <Route path="/users/admin" element={<Admin />} />
         <Route path="/regularuser/home" element={<RegularUserNavbar/>} />
         <Route path="/weightloss/home" element={<WeightLossUserNavbar/>} />
-        <Route path="/weightgain/home" element={<WeightGainMealPlanPage/>} />
-
-    
-        
-        <Route path="/exercises" element={<ExerciseYogaPage />}/>
+        <Route path="/weightgain/home" element={<WeightGainUserNavbar/>} />
+        <Route path="/progress" element={<UserProgressPage/>} />
+        <Route path="/allprogress" element={<AdminAllUserProgressPage/>} />
+        <Route path="/payment" element={<PaymentPage/>} />
+        <Route path="/adminpayment" element={<AdminPaymentsPage/>} />
+        <Route path="/exercises" element={<RegularExerciseYogaPage />}/>
+        <Route path="/weightlossexercises" element={<WeightLossExerciseYogaPage />}/>
+        <Route path="/weightgainexercises" element={<WeightGainExerciseYogaPage/>}/>
         <Route path="/mealplan" element={<RegularMealPlanPage/>}/>
         <Route path="/weightlossmealplan" element={<WeightLossMealPlanPage/>}/>
         <Route path="/weightgainmealplan" element={<WeightGainMealPlanPage/>}/>
@@ -75,6 +89,8 @@ function App() {
         <Route path="/healthinfo/view" element={<ViewHealthInfo userId={userId}/>}/>
         <Route path="/healthinfo/update" element={<UpdateHealthInfo userId={userId}/>}/>
         <Route path="/healthinfo/insert" element={<InsertHealthInfo userId={userId}/>}/>
+         <Route path="/{Id}/image_upload" element={<ProfilePicUpload/>} />
+         <Route path="/{userId}/image" element={<ProfileImage userId={userId}/>} />
 
         {/* Admin */}
 
@@ -87,7 +103,7 @@ function App() {
 
         {/*UserHealthInfo*/}
         <Route path="/admin/getuserhealthinfos" element={<UserHealthInfoList />} />
-        <Route path="/admin/getuserhealthinfobyId" element={<GetUserHealthInfoById />} />
+        <Route path="/admin/getUserById" element={<GetUserHealthInfoById />} />
 
         {/*Water Intake*/}
         <Route path="/admin/insertwaterintake" element={<CreateWaterIntake />} />

@@ -8,12 +8,19 @@ const WeightLossUserNavbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    axios.post('/api/logout')
+    axios.post('http://localhost:8080/users/user/logout')
       .then(response => {
+        // Clear any stored user data (e.g., tokens, user info)
+        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userRole');
+        
+        console.log(response.data); // Log the response message
         navigate('/');
       })
       .catch(error => {
         console.error("There was an error logging out!", error);
+        // You might want to show an error message to the user here
       });
   };
   return (
@@ -35,13 +42,15 @@ const WeightLossUserNavbar = () => {
                 <NavDropdown.Item href="/healthinfo/update">Update Health Info</NavDropdown.Item>
                 
               </NavDropdown>
+              <Nav.Link href="/progress">Progress</Nav.Link>
+              <Nav.Link href="/payment">Extra Features</Nav.Link>
               <NavDropdown title="Profile" id="user-dropdown">
                 <NavDropdown.Item href="/{Id}/image_upload">Edit Profile Picture</NavDropdown.Item>
                 <NavDropdown.Item href="/{userId}/image">View Profile Picture</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <NavDropdown title="User" id="basic-nav-dropdown">
+              <NavDropdown title="Logout" id="basic-nav-dropdown">
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               </NavDropdown>
             </Nav>
